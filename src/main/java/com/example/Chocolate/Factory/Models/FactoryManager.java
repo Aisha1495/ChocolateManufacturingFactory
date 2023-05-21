@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Setter
 @Entity
 @Data
-public class FactoryManager {
+public class FactoryManager extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Long id;

@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Setter
 @Entity
 @Data
-public class Inventory {
+public class Inventory extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
