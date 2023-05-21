@@ -15,4 +15,21 @@ import javax.persistence.Id;
 @Data
 public class Inventory {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     Long id;
+
+     Long productId;
+     int quantityAvailable;
+
+
+    public Inventory() {
+
+    }
+
+    public Inventory(Long productId, int quantityAvailable) {
+        this.productId = productId;
+        this.quantityAvailable = quantityAvailable;
+    }
+
 }

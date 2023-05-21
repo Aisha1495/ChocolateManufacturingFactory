@@ -15,12 +15,11 @@ import javax.persistence.Id;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     Long id;
 
-    String name;
-    String[] ingredients;
-    double price;
-    int quantityAvailable;
-
+     String name;
+   String[] ingredients;
+     double price;
+     int quantityAvailable;
 }

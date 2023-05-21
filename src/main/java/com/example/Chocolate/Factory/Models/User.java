@@ -15,16 +15,11 @@ import javax.persistence.Id;
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-     String username;
-     String password;
-     String email;
 
-    // Constructor
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
+   String username;
+   String password;
+  String role;
+
 }
