@@ -20,8 +20,9 @@ import javax.persistence.Id;
         Long id;
 
         String name;
-        String[] ingredients;
+       String ingredients;
         double price;
         int quantityAvailable;
+
 
 }

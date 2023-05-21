@@ -1,14 +1,13 @@
 package com.example.Chocolate.Factory.Controller;
 
 import com.example.Chocolate.Factory.Models.Product;
-import com.example.Chocolate.Factory.Models.User;
 import com.example.Chocolate.Factory.RequestObjects.GetProductRequestObject;
 import com.example.Chocolate.Factory.Service.ProductService;
-import com.example.Chocolate.Factory.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.ListIterator;
 
 @RestController
 @RequestMapping("/products")
@@ -20,7 +19,7 @@ public class ProductController {
 
     //create
     @RequestMapping("employee/create")
-    public void saveProduct (@RequestBody GetProductRequestObject ProductRequestObject) {
+    public void saveProduct(@RequestBody GetProductRequestObject ProductRequestObject) {
         Object productRequestObject = new Object();
         createProduct(productRequestObject);
     }
@@ -29,9 +28,11 @@ public class ProductController {
         Product product = new Product();
         product.setId(1223L);
         product.setName("Choco");
-        product.setIngredients(new String[]{"malik","cacao","sugar"});
+        product.setIngredients("Milk,cacao,sugar");
         product.setPrice(0.600);
         product.setQuantityAvailable(1223);
+
+        ProductService.saveProduct(product);
     }
 
     //get
@@ -51,8 +52,13 @@ public class ProductController {
 
     //delete
     @DeleteMapping("/{productId}")
-    public void deleteProduct(@PathVariable String userName) {
+    public void deleteProduct(@PathVariable Long productId) {
+        try {
+            ProductService.deleteProduct(productId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     }
-}
 

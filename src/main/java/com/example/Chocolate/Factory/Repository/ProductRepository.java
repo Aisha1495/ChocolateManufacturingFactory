@@ -9,11 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findByPriceGreaterThan(double price);
-    List<Product> findByIngredientsContaining(String ingredient);
-    List<Product> findByQuantityAvailableGreaterThanOrderByPriceAsc(int quantity);
+
 
     Optional<Product> findByUserName(String userName);
 
-    void deleteByUserName(Long userName);
+    void deleteByUserId(Long userId);
 }

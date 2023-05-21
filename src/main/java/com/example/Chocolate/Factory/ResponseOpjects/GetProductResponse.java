@@ -15,4 +15,7 @@ public class GetProductResponse {
     String[] ingredients;
     double price;
     int quantityAvailable;
+
+    public GetProductResponse(String name, String ingredients, double price, int quantityAvailable) {
+    }
 }

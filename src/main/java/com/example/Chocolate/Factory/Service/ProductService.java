@@ -5,6 +5,7 @@ import com.example.Chocolate.Factory.Repository.ProductRepository;
 import com.example.Chocolate.Factory.ResponseOpjects.GetProductResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,17 +19,17 @@ public class ProductService {
     ProductRepository productRepository;
 
 
-    public void saveProduct(Product product) {
+    public static void saveProduct(Product product) {
         productRepository.save(product);
     }
 
-    public static List<Product> getProduct() {
+    public static List<Product> getProduct(List<String> strings) {
         return productRepository.findAll();
     }
 
 
-    public GetProductResponse getEmployeeByUserName(String userName) {
-        Optional<Product> optionalProduct =  productRepository.findByUserName(userName);
+    public GetProductResponse getEmployeeByUserName(Long userId) {
+        Optional<Product> optionalProduct =  productRepository.findById(userId);
         if(!optionalProduct.isEmpty())
         {
             Product product =  optionalProduct.get();
@@ -40,9 +41,24 @@ public class ProductService {
 
     }
 
-    public void deleteProduct (Long userName) {
-        productRepository.deleteByUserName(userName);
-    }}
+    public static void deleteProduct(Long productId) {
+        productRepository.deleteById(productId);
+    }
+
+
+
+    @RequestMapping("product/get")
+    public static List<Product> getProduct() {
+        return ProductService.getProduct(ingredientsList());
+    }
+
+    private static List<String> ingredientsList() {
+
+        return ingredientsList();
+    }
+
+
+}
 
 
 
