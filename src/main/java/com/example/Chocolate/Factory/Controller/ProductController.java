@@ -1,5 +1,6 @@
 package com.example.Chocolate.Factory.Controller;
 
+import com.example.Chocolate.Factory.Models.Inventory;
 import com.example.Chocolate.Factory.Models.Product;
 import com.example.Chocolate.Factory.RequestObjects.GetProductRequestObject;
 import com.example.Chocolate.Factory.ResponseOpjects.GetProductResponse;
@@ -17,6 +18,9 @@ import java.util.ListIterator;
 @RestController
 //@RequestMapping("/products")
 public class ProductController {
+
+    List<Inventory> inventory;
+
     @Autowired
     ProductService productService;
 
@@ -72,6 +76,7 @@ public class ProductController {
         product.setIngredients("cocoa-sugar-butter");
         product.setPrice(2.99);
         product.setQuantityAvailable(100);
+
 
         productService.saveProduct(product);
     }

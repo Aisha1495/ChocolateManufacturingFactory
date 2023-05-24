@@ -1,6 +1,7 @@
 package com.example.Chocolate.Factory.Service;
 
 import com.example.Chocolate.Factory.Models.Inventory;
+import com.example.Chocolate.Factory.Models.Product;
 import com.example.Chocolate.Factory.Repository.InventoryRepository;
 import com.example.Chocolate.Factory.ResponseOpjects.GetInventoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import java.util.Optional;
 
 @Service
 public class InventoryService {
+
+    List<Product> products;
     @Autowired
     InventoryRepository inventoryRepository;
 
@@ -38,6 +41,7 @@ public class InventoryService {
         return null;
 
     }
+
 
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/inventory")
 
-public class InventoryController {
+public class InventoryController extends ProductController {
     @Autowired
     InventoryService inventoryService;
 
@@ -62,6 +62,7 @@ public class InventoryController {
         Inventory inventory = new Inventory();
         inventory.setProductId(1445L);
         inventory.setQuantityAvailable(600);
+
 
         inventoryService.saveInventory(inventory);
 
