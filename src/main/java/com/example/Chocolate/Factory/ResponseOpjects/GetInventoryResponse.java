@@ -5,17 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Date;
-
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetOrderResponse {
+public class GetInventoryResponse {
+
     Long id;
-
-    int quantity;
-    String shippingDetails;
-    Date orderDate;
-
+    Long productId;
+    int quantityAvailable;
 }

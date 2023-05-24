@@ -34,7 +34,7 @@ public class OrderService {
         if(!optionalOrder.isEmpty())
         {
             Order order =  optionalOrder.get();
-            GetOrderResponse orderResponse = new GetOrderResponse(order.getId(),order.getProductId(),order.getQuantity(),order.getShippingDetails(),order.getOrderDate());
+            GetOrderResponse orderResponse = new GetOrderResponse(order.getId(),order.getQuantity(),order.getShippingDetails(),order.getOrderDate());
             return orderResponse;
 
         }

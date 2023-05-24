@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+import java.sql.Date;
 
 @Getter
 @Setter
@@ -19,10 +19,9 @@ public class Order extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-   Long productId;
   int quantity;
   String shippingDetails;
-  String orderDate;
+  Date orderDate;
 
 
 

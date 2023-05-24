@@ -6,8 +6,10 @@ import com.example.Chocolate.Factory.RequestObjects.GetOrderRequestObject;
 import com.example.Chocolate.Factory.RequestObjects.GetProductRequestObject;
 import com.example.Chocolate.Factory.Service.OrderService;
 import com.example.Chocolate.Factory.Service.ProductService;
+import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -62,10 +64,10 @@ public class OrderController {
     private void createOrder(Object orderRequestObject) {
         Order order = new Order();
         order.setId(1224L);
-        order.setOrderDate("02/05/2023");
+        order.setOrderDate(new Date(2023,12,05));
         order.setQuantity(120);
         order.setShippingDetails("completed");
-        order.setProductId(1234L);
+        order.setOrderDate(new Date(2023,12,05));
 
         OrderService.saveOrder(order);
     }

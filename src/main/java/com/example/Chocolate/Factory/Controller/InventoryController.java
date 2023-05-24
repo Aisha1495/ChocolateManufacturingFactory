@@ -1,7 +1,14 @@
 package com.example.Chocolate.Factory.Controller;
 
+import com.example.Chocolate.Factory.Models.Inventory;
+import com.example.Chocolate.Factory.Models.Order;
 import com.example.Chocolate.Factory.Models.Product;
+import com.example.Chocolate.Factory.Repository.InventoryRepository;
 import com.example.Chocolate.Factory.Repository.ProductRepository;
+import com.example.Chocolate.Factory.RequestObjects.GetInventoryRequestObject;
+import com.example.Chocolate.Factory.RequestObjects.GetOrderRequestObject;
+import com.example.Chocolate.Factory.Service.InventoryService;
+import com.example.Chocolate.Factory.Service.OrderService;
 import com.example.Chocolate.Factory.Service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,39 +21,57 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/inventory")
 
 public class InventoryController {
-    private final ProductRepository productRepository;
+    @PostMapping
+    public Inventory placeInventory(@RequestBody Inventory inventory) {
 
-    @Autowired
-    public InventoryController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+
+        return inventory;
     }
 
-    @Autowired
-    ProductService productService;
-
-    @RequestMapping("product/create")
-    public void saveProduct () {
-        createProduct();
+    //create
+    @RequestMapping("inventory/create")
+    public void saveInventory(@RequestBody GetInventoryRequestObject inventoryRequestObject) {
+        Object InventoryRequestObject = new Object();
+        createInventory(inventoryRequestObject);
     }
 
-    public void createProduct() {
+    //get
+    @RequestMapping("inventory/get")
+    public List<Inventory> getInventory() {
+        return InventoryService.getInventory();
+    }
 
-        Product product = new Product();
-       product.setId(1225L);
+    //update
+    @PutMapping("/{inventoryId}")
+    public Inventory updateInventory(@PathVariable Long inventoryId, @RequestBody Inventory updatedInventory) {
 
-       //
-        productService.saveProduct(product);
+        return updatedInventory;
     }
 
 
-    @GetMapping
-    public List<Product> getInventory() {
+    //delete
+    @DeleteMapping("/{inventoryId}")
+    public void deleteInventory(@PathVariable Long inventoryId) {
+        try {
+            InventoryService.deleteInventory(inventoryId);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        List<Product> products = productRepository.findAll();
-        return products;
     }
 
-    //update ... Not explained !!!!!!
+
+
+
+    private void createInventory(GetInventoryRequestObject inventoryRequestObject) {
+        Inventory inventory = new Inventory();
+        inventory.setId(5555L);
+        inventory.setProductId(1445L);
+        inventory.setQuantityAvailable(600);
+
+        InventoryService.saveInventory(inventory);
+
+    }
 
 
 }
