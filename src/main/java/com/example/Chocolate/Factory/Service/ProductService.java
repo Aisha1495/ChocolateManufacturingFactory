@@ -5,7 +5,6 @@ import com.example.Chocolate.Factory.Repository.ProductRepository;
 import com.example.Chocolate.Factory.ResponseOpjects.GetProductResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,20 +14,19 @@ public class ProductService {
 
 
     @Autowired
-    static
+
     ProductRepository productRepository;
 
 
-    public static void saveProduct(Product product) {
-        productRepository.save(product);
+    public void saveProduct(Product product) {productRepository.save(product);
     }
 
-    public static List<Product> getProduct(List<String> strings) {
+    public List<Product> getProduct() {
         return productRepository.findAll();
     }
 
 
-    public GetProductResponse getProductByUserName(Long productId) {
+    public GetProductResponse getProductById(Long productId) {
         Optional<Product> optionalProduct =  productRepository.findById(productId);
         if(!optionalProduct.isEmpty())
         {
@@ -41,21 +39,29 @@ public class ProductService {
 
     }
 
-    public static void deleteProduct(Long productId) {
-        productRepository.deleteById(productId);
-    }
+//    public void deleteProduct(Long productId) {
+//        productRepository.deleteById(productId);
+//    }
+//
+//
+//    public void saveOrUpdate(Product product) {
+//        productRepository.save(product);
+//    }
+//
 
-
-
-    @RequestMapping("product/get")
-    public static List<Product> getProduct() {
-        return ProductService.getProduct(ingredientsList());
-    }
-
-    private static List<String> ingredientsList() {
-
-        return ingredientsList();
-    }
+//    public Product updateProduct(Long id, Product updateData){
+//        Product product = productRepository.findById(id).orElse(null);
+//        if (product != null) {
+//            product.setName(updateData.getName());
+//            product.setPrice(updateData.getPrice());
+//            product.setQuantityAvailable(updateData.getQuantityAvailable());
+//            product.setIngredients(updateData.getIngredients());
+//
+//
+//            return productRepository.save(product);
+//        }
+//        return null;
+//    }
 
 
 }

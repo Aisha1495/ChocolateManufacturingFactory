@@ -14,7 +14,7 @@ import java.sql.Date;
 @Setter
 @Entity
 @Data
-public class Order extends BaseEntity{
+public class Orders extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
