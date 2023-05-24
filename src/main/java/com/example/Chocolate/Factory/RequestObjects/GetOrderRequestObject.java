@@ -5,14 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class GetProductRequestObject {
+public class GetOrderRequestObject {
+    Long id;
+    Long productId;
+    int quantity;
+    String shippingDetails;
+    String orderDate;
 
-    String name;
-    String ingredients;
-    double price;
-    int quantityAvailable;
 }

@@ -28,12 +28,12 @@ public class ProductService {
     }
 
 
-    public GetProductResponse getEmployeeByUserName(Long userId) {
-        Optional<Product> optionalProduct =  productRepository.findById(userId);
+    public GetProductResponse getProductByUserName(Long productId) {
+        Optional<Product> optionalProduct =  productRepository.findById(productId);
         if(!optionalProduct.isEmpty())
         {
             Product product =  optionalProduct.get();
-            GetProductResponse productResponse = new GetProductResponse(product.getName(), product.getIngredients(), product.getPrice(), product.getQuantityAvailable());
+            GetProductResponse productResponse = new GetProductResponse(product.getName(),product.getIngredients(),product.getPrice(),product.getQuantityAvailable());
             return productResponse;
         }
 

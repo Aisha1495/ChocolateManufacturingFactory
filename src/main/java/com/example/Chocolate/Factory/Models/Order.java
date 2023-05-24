@@ -22,18 +22,8 @@ public class Order extends BaseEntity{
    Long productId;
   int quantity;
   String shippingDetails;
-  Date orderDate;
+  String orderDate;
 
 
 
-    public Order() {
-
-    }
-
-    public Order(Long productId, int quantity, String shippingDetails) {
-        this.productId = productId;
-        this.quantity = quantity;
-        this.shippingDetails = shippingDetails;
-        this.orderDate = new Date();
-    }
 }

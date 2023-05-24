@@ -21,11 +21,4 @@ public class FactoryManager extends BaseEntity {
     String role;
     String accessLevel;
 
-    // Constructor
-    public FactoryManager(String name, String role, String accessLevel) {
-        this.name = name;
-        this.role = role;
-        this.accessLevel = accessLevel;
-    }
-
 }

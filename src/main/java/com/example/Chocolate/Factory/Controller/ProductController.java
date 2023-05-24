@@ -24,16 +24,6 @@ public class ProductController {
         createProduct(productRequestObject);
     }
 
-    private void createProduct(Object productRequestObject) {
-        Product product = new Product();
-        product.setId(1223L);
-        product.setName("Choco");
-        product.setIngredients("Milk,cacao,sugar");
-        product.setPrice(0.600);
-        product.setQuantityAvailable(1223);
-
-        ProductService.saveProduct(product);
-    }
 
     //get
     @RequestMapping("product/get")
@@ -58,7 +48,17 @@ public class ProductController {
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
 
+    }
+    private void createProduct(Object productRequestObject) {
+        Product product = new Product();
+        product.setId(1223L);
+        product.setName("Choco");
+        product.setIngredients("malik-cacao-sugar");
+        product.setPrice(0.600);
+        product.setQuantityAvailable(1223);
+
+        ProductService.saveProduct(product);
+    }
     }
 

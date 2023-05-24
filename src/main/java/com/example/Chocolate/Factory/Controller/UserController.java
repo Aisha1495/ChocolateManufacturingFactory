@@ -16,37 +16,37 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    @Autowired
-    UserService userService;
+//    @Autowired
+//    UserService userService;
+//
+//    //create
+//    @RequestMapping("user/create")
+//    public void saveUser (@RequestBody GetUserRequestObject UserRequestObject) {
+//        createUser(UserRequestObject);
+//    }
+//
+//    //get
+//    @RequestMapping("user/get")
+//    public List<User> getUser () {
+//        return UserService.getUser();
+//    }
+//
+//    //delete
+//    @RequestMapping("user/delete/{employeeId}")
+//    public void deleteUser (@PathVariable Long UserId) {
+//        UserService.deleteUser(UserId);
+//    }
+//
 
-    //create
-    @RequestMapping("user/create")
-    public void saveUser (@RequestBody GetUserRequestObject UserRequestObject) {
-        createUser(UserRequestObject);
-    }
-
-    //get
-    @RequestMapping("user/get")
-    public List<User> getUser () {
-        return UserService.getUser();
-    }
-
-    //delete
-    @RequestMapping("user/delete/{employeeId}")
-    public void deleteUser (@PathVariable Long UserId) {
-        UserService.deleteUser(UserId);
-    }
-
-
-    public void createUser(GetUserRequestObject userRequestObject) {
-        User user = new User();
-        user.setId(1234L);
-        user.setUsername("Aisha123");
-        user.setPassword("A@12345");
-        user.setRole("admin");
-        user.setCreatedDate(new Date());
-        user.setIsActive(true);
-        userService.saveUser(user);
-
-    }
+//    public void createUser(GetUserRequestObject userRequestObject) {
+//        User user = new User();
+//        user.setId(1234L);
+//        user.setUsername("Aisha123");
+//        user.setPassword("A@12345");
+//        user.setRole("admin");
+//        user.setCreatedDate(new Date());
+//        user.setIsActive(true);
+//        userService.saveUser(user);
+//
+//    }
 }
