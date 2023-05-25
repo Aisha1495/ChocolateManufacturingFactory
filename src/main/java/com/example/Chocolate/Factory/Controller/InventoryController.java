@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/inventory")
 
-public class InventoryController extends ProductController {
+public class InventoryController {
     @Autowired
     InventoryService inventoryService;
 

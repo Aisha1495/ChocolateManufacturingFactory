@@ -11,21 +11,14 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-
-
     @Autowired
-
     ProductRepository productRepository;
-
 
     public void saveProduct(Product product) {productRepository.save(product);
     }
-
     public List<Product> getProduct() {
         return productRepository.findAll();
     }
-
-
     public GetProductResponse getProductById(Long productId) {
         Optional<Product> optionalProduct =  productRepository.findById(productId);
         if(!optionalProduct.isEmpty())
@@ -38,7 +31,6 @@ public class ProductService {
         return null;
 
     }
-
 //    public void deleteProduct(Long productId) {
 //        productRepository.deleteById(productId);
 //    }
@@ -62,8 +54,6 @@ public class ProductService {
 //        }
 //        return null;
 //    }
-
-
 
 }
 

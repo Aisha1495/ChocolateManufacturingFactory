@@ -4,10 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -25,5 +22,7 @@ import java.util.List;
         double price;
         int quantityAvailable;
 
-
+    @ManyToOne
+    @JoinColumn(name = "inventory_id",referencedColumnName = "id")
+    Inventory inventory;
 }
