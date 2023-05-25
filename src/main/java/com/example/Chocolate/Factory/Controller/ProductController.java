@@ -16,7 +16,7 @@ import java.util.ListIterator;
 ///{ "name": "Dark Chocolate Bar", "ingredients": "cocoa-sugar-butter", "price": 2.99, "quantity":
 //100 }
 @RestController
-//@RequestMapping("/products")
+@RequestMapping("/products")
 public class ProductController {
 
     List<Inventory> inventory;
