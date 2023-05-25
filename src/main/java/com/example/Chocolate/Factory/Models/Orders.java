@@ -24,5 +24,4 @@ public class Orders extends BaseEntity{
   Date orderDate;
 
 
-
 }
