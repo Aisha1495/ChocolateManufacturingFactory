@@ -19,6 +19,7 @@ public class Inventory extends BaseEntity{
      int quantityAvailable;
 
     @ManyToOne
-    @JoinColumn(name = "product_id",referencedColumnName = "id")
+    @JoinColumn(name = "Product_id",referencedColumnName = "id")
     Product product;
+
 }

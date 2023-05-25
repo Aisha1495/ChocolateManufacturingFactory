@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -72,11 +73,14 @@ public class ProductController {
 
     private void createProduct(Object productRequestObject) {
         Product product = new Product();
+        product.setId(12345L);
         product.setName("Dark Chocolate Bar");
         product.setIngredients("cocoa-sugar-butter");
         product.setPrice(2.99);
         product.setQuantityAvailable(100);
-
+        product.setCreatedDate(new Date(2023,12,05));
+        product.setUpdatedDate(new Date(2023,12,05));
+        product.setIsActive(true);
 
         productService.saveProduct(product);
     }

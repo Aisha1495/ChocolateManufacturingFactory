@@ -9,6 +9,7 @@ import com.example.Chocolate.Factory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -60,8 +61,12 @@ public class InventoryController {
 
     private void createInventory(GetInventoryRequestObject inventoryRequestObject) {
         Inventory inventory = new Inventory();
+        inventory.setId(2255L);
         inventory.setProductId(1445L);
         inventory.setQuantityAvailable(600);
+        inventory.setCreatedDate(new Date(2023,12,05));
+        inventory.setUpdatedDate(new Date(2023,12,05));
+        inventory.setIsActive(true);
 
 
         inventoryService.saveInventory(inventory);

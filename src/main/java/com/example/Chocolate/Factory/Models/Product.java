@@ -22,7 +22,5 @@ import java.util.List;
         double price;
         int quantityAvailable;
 
-    @ManyToOne
-    @JoinColumn(name = "inventory_id",referencedColumnName = "id")
-    Inventory inventory;
+
 }
